@@ -8,7 +8,7 @@
 - Repository
 - CQRS
 - EF Core e aplicar o Migrations para gerar o banco de dados e as tabelas
-- Também será utilizado banco de dados Postgree
+- Também será utilizado banco de dados Sql Server
 - Autenticação com JWT
 - Testes de Unidade com xUnit
 - Handlers
