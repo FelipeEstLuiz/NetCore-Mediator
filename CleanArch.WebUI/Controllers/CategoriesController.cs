@@ -15,6 +15,7 @@ namespace CleanArch.WebUI.Controllers
             _categoryService = categoryService;
         }
 
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             IEnumerable<CategoryDto> categories = await _categoryService.GetCategoriesAsync();
