@@ -3,7 +3,7 @@ using MediatR;
 
 namespace CleanArch.Application.Products.Commands
 {
-    public struct ProductRemoveCommand : IRequest<Product>
+    public class ProductRemoveCommand : IRequest<Product>
     {
         public int Id { get; private set; }
 

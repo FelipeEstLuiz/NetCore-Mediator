@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace CleanArch.Application.Products.Queries
 {
-    public struct GetProductsQuery : IRequest<IEnumerable<Product>>
+    public class GetProductsQuery : IRequest<IEnumerable<Product>>
     {
     }
 }

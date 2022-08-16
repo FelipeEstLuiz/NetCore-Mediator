@@ -1,13 +1,13 @@
 ﻿using CleanArch.Domain.Entities;
 using MediatR;
 
-namespace CleanArch.Application.Products.Queries
+namespace CleanArch.Application.Categories.Queries
 {
-    public class GetProductByIdQuery : IRequest<Product>
+    public class GetCategoryByIdQuery : IRequest<Category>
     {
         public int Id { get; private set; }
 
-        public GetProductByIdQuery(int id)
+        public GetCategoryByIdQuery(int id)
         {
             Id = id;
         }
