@@ -24,6 +24,11 @@ namespace CleanArch.Application.Categories.Handlers
             if (category == null)
                 throw new ApplicationException("Entity could not be found");
 
+            bool exists = await _categoryRepository.CategoryProductAsync(category.Id);
+
+            if (exists)
+                throw new ApplicationException("Action not allowed, category linked to a product");
+
             Category result = await _categoryRepository.RemoveAsync(category);
             return result;
         }

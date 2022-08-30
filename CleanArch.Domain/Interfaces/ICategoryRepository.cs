@@ -8,6 +8,7 @@ namespace CleanArch.Domain.Interfaces
     {
         Task<IEnumerable<Category>> GetCategoriesAsync();
         Task<Category> GetCategoryByIdAsync(int? id);
+        Task<bool> CategoryProductAsync(int? id);
         Task<Category> CreateAsync(Category category);
         Task<Category> UpdateAsync(Category category);
         Task<Category> RemoveAsync(Category category);

@@ -16,6 +16,11 @@ namespace CleanArch.Infra.Data.Repositories
             _context = context;
         }
 
+        public async Task<bool> CategoryProductAsync(int? id)
+        {
+            return await _context.Products.FirstOrDefaultAsync(x => x.CategoryId == id.Value) is not null;
+        }
+
         public async Task<Category> CreateAsync(Category category)
         {
             _context.Add(category);
