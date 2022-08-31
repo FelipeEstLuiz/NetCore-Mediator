@@ -43,15 +43,15 @@ namespace CleanArch.WebUI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(ProductDto productDto)
+        public async Task<IActionResult> Create(ProductDto request)
         {
             if (ModelState.IsValid)
             {
-                await _productService.CreateProductyAsync(productDto);
+                await _productService.CreateProductyAsync(request);
                 return RedirectToAction(nameof(Index));
             }
 
-            return View(productDto);
+            return View(request);
         }
 
         [HttpGet()]
@@ -71,14 +71,14 @@ namespace CleanArch.WebUI.Controllers
         }
 
         [HttpPost()]
-        public async Task<IActionResult> Edit(ProductDto productDto)
+        public async Task<IActionResult> Edit(ProductDto request)
         {
             if (ModelState.IsValid)
             {
-                await _productService.UpdateProductyAsync(productDto);
+                await _productService.UpdateProductyAsync(request);
                 return RedirectToAction(nameof(Index));
             }
-            return View(productDto);
+            return View(request);
         }
 
         [HttpGet()]
