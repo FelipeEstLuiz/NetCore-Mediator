@@ -26,7 +26,7 @@ namespace CleanArch.WebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
-            bool result = await _authenticate.RegisterUser(model.Email, model.Password);
+            bool result = await _authenticate.Authenticate(model.Email, model.Password);
 
             if (result)
             {
@@ -61,7 +61,7 @@ namespace CleanArch.WebUI.Controllers
         public async Task<IActionResult> Logout()
         {
             await _authenticate.Logout();
-            return Redirect("Account/Login");
+            return Redirect("/Account/Login");
         }
     }
 }
