@@ -21,6 +21,7 @@ namespace CleanArch.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddInfrastructureApi(Configuration.GetConnectionString("DefaultConnection"));
+            services.AddInfrastructureJwt();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

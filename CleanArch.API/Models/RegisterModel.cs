@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace CleanArch.WebUI.ViewModels
+namespace CleanArch.API.Models
 {
-    public class RegisterViewModel
+    public class RegisterModel
     {
         [Required]
         [EmailAddress]
