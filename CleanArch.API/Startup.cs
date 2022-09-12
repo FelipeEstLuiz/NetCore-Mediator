@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
 
 namespace CleanArch.API
 {
@@ -21,12 +20,13 @@ namespace CleanArch.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddInfrastructureApi(Configuration.GetConnectionString("DefaultConnection"));
-            services.AddInfrastructureJwt();
+            services.AddInfrastructureJwt(
+                secretKey: Configuration["Jwt:SecretKey"],
+                issuer: Configuration["Jwt:Issuer"],
+                audience: Configuration["Jwt:Audience"]
+            );
+            services.AddInfrastructureSwagger();
             services.AddControllers();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "CleanArch.API", Version = "v1" });
-            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,7 +42,7 @@ namespace CleanArch.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
