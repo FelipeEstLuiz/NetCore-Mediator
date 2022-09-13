@@ -1,4 +1,4 @@
-# ASP .NET Core MVC
+# ASP .NET Core MVC a Web API
 
 ## Padrões utilizados
 
@@ -12,3 +12,5 @@
 - Autenticação com JWT
 - Testes de Unidade com xUnit
 - Handlers
+
+> Solução criada em .Net Core 5 e ao finalizar será atualizada para .Net Core 6
